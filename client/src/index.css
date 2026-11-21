@@ -1,1 +1,430 @@
 @import "tailwindcss";
+
+/* =========================================
+   1. NEXTNIX DESIGN SYSTEM
+========================================= */
+
+@theme {
+  /* Brand Colors */
+  --color-brand-navy: #051d67;
+  --color-brand-green: #5ee587;
+  --color-brand-dark: #07142e;
+
+  /* Neutral Colors */
+  --color-surface: #ffffff;
+  --color-background: #f8fafc;
+  --color-muted: #64748b;
+  --color-border: #e2e8f0;
+
+  /* Typography */
+  --font-display: "Plus Jakarta Sans", sans-serif;
+  --font-body: "DM Sans", sans-serif;
+}
+
+/* =========================================
+   2. ROOT VARIABLES
+========================================= */
+
+:root {
+  font-family: "DM Sans", sans-serif;
+
+  color: #101828;
+  background-color: #f8fafc;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  --brand-navy: #051d67;
+  --brand-green: #5ee587;
+  --brand-dark: #07142e;
+
+  --text-primary: #101828;
+  --text-secondary: #64748b;
+  --text-tertiary: #ffffff;
+
+  --surface: #ffffff;
+  --background: #f8fafc;
+  --border: #e2e8f0;
+
+  --container-width: 1440px;
+
+  --section-spacing: clamp(72px, 9vw, 120px);
+
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+}
+
+/* =========================================
+   3. CSS RESET
+========================================= */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 100px;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+
+  font-family: "DM Sans", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.7;
+
+  color: var(--text-primary);
+  background-color: var(--background);
+}
+
+#root {
+  min-height: 100vh;
+  isolation: isolate;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* =========================================
+   4. GLOBAL HERO GRID PATTERN
+   पूरे वेबसाइट में इस्तेमाल होगा
+========================================= */
+
+.hero-grid-pattern {
+  position: relative;
+  isolation: isolate;
+
+  background-color: #f8fafc;
+
+  background-image:
+    radial-gradient(
+      ellipse at 50% 0%,
+      rgba(94, 229, 135, 0.12),
+      transparent 55%
+    ),
+    linear-gradient(rgba(5, 29, 103, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(5, 29, 103, 0.045) 1px, transparent 1px);
+
+  background-size:
+    100% 100%,
+    44px 44px,
+    44px 44px;
+
+  background-position:
+    center top,
+    center top,
+    center top;
+
+  background-attachment: fixed;
+}
+
+/* =========================================
+   5. TYPOGRAPHY SYSTEM
+========================================= */
+@layer base {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin: 0;
+
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-weight: 700;
+
+    line-height: 1.15;
+    letter-spacing: -0.035em;
+
+    color: var(--brand-dark);
+    /* color: var(--text-tertiary); */
+  }
+}
+
+h1 {
+  font-size: clamp(2.6rem, 6vw, 4.5rem);
+  font-weight: 800;
+}
+
+h2 {
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: 800;
+}
+
+h3 {
+  font-size: clamp(1.25rem, 2vw, 1.6rem);
+  font-weight: 700;
+}
+
+p {
+  margin: 0;
+  color: var(--text-secondary);
+}
+
+/* =========================================
+   6. REUSABLE LAYOUT UTILITIES
+========================================= */
+
+.container-shell {
+  width: min(calc(100% - 2rem), 1440px);
+  margin-inline: auto;
+}
+
+.section-padding {
+  padding-block: var(--section-spacing);
+}
+
+.section-heading {
+  max-width: 880px;
+  margin-inline: auto;
+  text-align: start;
+}
+
+.section-heading p {
+  max-width: 560px;
+  margin: 18px auto 0;
+  font-size: 1.05rem;
+  line-height: 1.8;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  padding: 7px 13px;
+
+  border: 1px solid rgba(5, 29, 103, 0.12);
+  border-radius: 999px;
+
+  background: rgba(255, 255, 255, 0.75);
+
+  color: var(--brand-navy);
+
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+/* =========================================
+   7. BUTTON SYSTEM
+========================================= */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  min-height: 48px;
+  padding: 12px 22px;
+
+  border: 1px solid transparent;
+  border-radius: 12px;
+
+  font-family: "DM Sans", sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.btn-primary {
+  background: var(--brand-navy);
+  color: #ffffff;
+
+  box-shadow: 0 8px 20px rgba(5, 29, 103, 0.15);
+}
+
+.btn-primary:hover {
+  background: #092b8d;
+  transform: translateY(-2px);
+
+  box-shadow: 0 12px 24px rgba(5, 29, 103, 0.2);
+}
+
+.btn-secondary {
+  background: #ffffff;
+  color: var(--brand-navy);
+  border-color: var(--border);
+}
+
+.btn-secondary:hover {
+  border-color: var(--brand-navy);
+  background: #f8fafc;
+  transform: translateY(-2px);
+}
+
+.btn-accent {
+  background: var(--brand-green);
+  color: var(--brand-dark);
+}
+
+.btn-accent:hover {
+  background: #48d978;
+  transform: translateY(-2px);
+}
+
+/* =========================================
+   8. SURFACE & CARD SYSTEM
+========================================= */
+
+.surface-card {
+  background: rgba(255, 255, 255, 0.88);
+
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  border-radius: var(--radius-lg);
+
+  box-shadow:
+    0 4px 20px rgba(15, 23, 42, 0.035),
+    0 1px 3px rgba(15, 23, 42, 0.025);
+}
+
+.surface-card-hover {
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.surface-card-hover:hover {
+  transform: translateY(-5px);
+
+  border-color: rgba(5, 29, 103, 0.2);
+
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
+}
+
+/* =========================================
+   9. SELECTION & SCROLLBAR
+========================================= */
+
+::selection {
+  color: var(--brand-dark);
+  background: rgba(94, 229, 135, 0.55);
+}
+
+::-webkit-scrollbar {
+  width: 9px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #aab7ca;
+  border: 2px solid #f1f5f9;
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--brand-navy);
+}
+
+/* =========================================
+   10. ACCESSIBILITY
+========================================= */
+
+:focus-visible {
+  outline: 3px solid rgba(94, 229, 135, 0.9);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* =========================================
+   11. RESPONSIVE FOUNDATION
+========================================= */
+
+@media (max-width: 768px) {
+  :root {
+    --section-spacing: 72px;
+  }
+
+  .container-shell {
+    width: min(calc(100% - 36px), var(--container-width));
+  }
+
+  .hero-grid-pattern {
+    background-size:
+      100% 100%,
+      32px 32px,
+      32px 32px;
+
+    background-attachment: scroll;
+  }
+}
+
+@media (max-width: 480px) {
+  .container-shell {
+    width: min(calc(100% - 32px), var(--container-width));
+  }
+
+  .btn {
+    min-height: 46px;
+    padding: 11px 17px;
+  }
+}
+
+/* iPad Pro 13-inch portrait: keep footer brand information left-aligned. */
+@media (min-width: 1024px) and (max-width: 1100px) and (orientation: portrait) {
+  .footer-brand-info {
+    align-items: flex-start;
+    text-align: left;
+  }
+}
