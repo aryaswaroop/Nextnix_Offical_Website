@@ -10,7 +10,7 @@ export default defineConfig({
     tailwindcss(),
     // Google SEO के लिए ऑटोमेटिक Sitemap (यहाँ अपने पब्लिक रूट्स जोड़ते जाएं)
     Sitemap({
-      hostname: 'http://localhost:5173',
+      hostname: 'https://nextnix.netlify.app/',
       dynamicRoutes: ['/', '/about', '/services', '/learn', '/blog', '/contact'],
     }),
     // सुपरफास्ट लोडिंग के लिए फाइल कम्प्रेशन
