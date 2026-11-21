@@ -11,21 +11,11 @@ export default defineConfig({
     // Google SEO के लिए ऑटोमेटिक Sitemap (यहाँ अपने पब्लिक रूट्स जोड़ते जाएं)
     Sitemap({
       hostname: 'http://localhost:5173',
-      dynamicRoutes: ['/', '/pricing', '/blog', '/about'],
+      dynamicRoutes: ['/', '/about', '/services', '/learn', '/blog', '/contact'],
     }),
     // सुपरफास्ट लोडिंग के लिए फाइल कम्प्रेशन
     viteCompression({
       algorithm: 'gzip',
     }),
   ],
-  build: {
-    // कोड को छोटे टुकड़ों में बांटने के लिए
-    rollupOptions: {
-      output: {
-        manualChunks: {
-          vendor: ['react', 'react-dom', 'react-router-dom'],
-        },
-      },
-    },
-  },
 });
